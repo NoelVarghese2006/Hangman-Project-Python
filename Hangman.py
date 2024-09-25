@@ -39,10 +39,11 @@ while(gameLoop):
             validate = True
 
     indices = [i for i, c in enumerate(randLine) if c == userInput]
-    for i in indices:
-        blanks = blanks[:i] + userInput + blanks[i + 1:]
     if(len(indices) == 0):
         lives = lives - 1
+    else:
+        for i in indices:
+            blanks = blanks[:i] + userInput + blanks[i + 1:]
     if(lives == 0):
         print("Sorry, you lost")
         print(randLine)
